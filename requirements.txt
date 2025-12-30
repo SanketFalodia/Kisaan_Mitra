@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+chromadb
+pydantic
+python-multipart
+openai
+whisper
+torch
+torchaudio
+numpy
+pillow
+pytesseract
+opencv-python
