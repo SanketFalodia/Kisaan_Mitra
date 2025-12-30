@@ -1,17 +1,21 @@
+import os
 import json
 from chromadb import Client
 from chromadb.config import Settings
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "rag_db")
+
 client = Client(
     Settings(
-        persist_directory="rag_db",
+        persist_directory=DB_PATH,
         anonymized_telemetry=False
     )
 )
 
 collection = client.get_or_create_collection("schemes")
 
-with open("data/uttarakhand_schemes.json", "r", encoding="utf-8") as f:
+with open(os.path.join(BASE_DIR, "data", "uttarakhand_schemes.json"), "r", encoding="utf-8") as f:
     schemes = json.load(f)
 
 for scheme in schemes:
@@ -41,4 +45,4 @@ for scheme in schemes:
         ids=[scheme["scheme_id"]]
     )
 
-print("✅ All schemes indexed into RAG")
+print("✅ All schemes indexed into RAG at:", DB_PATH)

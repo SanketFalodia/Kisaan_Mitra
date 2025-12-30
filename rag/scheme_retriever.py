@@ -1,9 +1,13 @@
+import os
 from chromadb import Client
 from chromadb.config import Settings
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "rag_db")
+
 client = Client(
     Settings(
-        persist_directory="rag_db",
+        persist_directory=DB_PATH,
         anonymized_telemetry=False
     )
 )
