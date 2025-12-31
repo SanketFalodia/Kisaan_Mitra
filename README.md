@@ -1,3 +1,7 @@
+> 🏆 Built by **Team Neobots** for  
+> **Hack The Winter – The Second Wave (Angry Bird Edition)**
+> 
+
 # 🌾 Kisaan Mitra
 
 **Kisaan Mitra** is an **AI-powered, voice-first assistant** designed to help Indian farmers—especially from **Uttarakhand (Garhwal & Kumaoni regions)**—discover and understand **government agricultural schemes** in their **local languages**.
@@ -24,10 +28,19 @@ A **voice-first, multilingual AI assistant** that:
 
 ---
 
+## 🎥 Demo
+
+📽️ **Watch the working demo here:**  
+👉 *Google Drive link will be added soon*
+
+(Voice interaction, scheme discovery, and multilingual responses are demonstrated.)
+
+---
+
 ## ✨ Features
 
 ### 🎤 Voice-First Interface
-- Local **Speech-to-Text** using **Whisper (MEDIUM model)**
+- Local **Speech-to-Text** using **Whisper**
 - Hindi agricultural terminology understanding
 - **Text-to-Speech** via **Edge-TTS**
 - Offline TTS fallback support
@@ -46,7 +59,6 @@ A **voice-first, multilingual AI assistant** that:
   - Hail  
   - Frost  
   - Cyclone  
-- Extracts **farmer age** from speech
 - Maps intents to **government scheme categories**
 
 ---
@@ -83,41 +95,47 @@ A **voice-first, multilingual AI assistant** that:
 
 ### 🔹 Current System (Round 1)
 
+```text
 Farmer (Voice Input)
-↓
+        ↓
 Whisper MEDIUM (Speech-to-Text)
-↓
+        ↓
 Intent Detector (Keyword Matching)
-↓
-Multilingual Scheme Retriever (ChromaDB + Semantic Search)
-↓
-Scheme Filtering (Intent / Disaster / Age)
-↓
-LLM Response Generator (Ollama Mistral)
-↓
+        ↓
+Multilingual Scheme Retriever
+(ChromaDB + Semantic Search)
+        ↓
+Scheme Filtering
+(Intent / Disaster / Age)
+        ↓
+LLM Response Generator
+(Ollama Mistral)
+        ↓
 Edge-TTS (Voice Output)
-↓
+        ↓
 Farmer (Voice Response)
+
 
 
 ---
 
+```markdown
 ## 📁 Project Structure
 
+```text
 kisaan-mitra/
+├── main_app.py                  # FastAPI backend (primary entry point)
+├── streamlit_app.py             # Streamlit web interface
+├── requirements.txt             # Python dependencies
+├── uttarakhand_schemes.json     # Government scheme database
 │
-├── main_app.py # FastAPI backend (primary entry point)
-├── streamlit_app.py # Streamlit web interface
-├── requirements.txt # Python dependencies
-├── uttarakhand_schemes.json # Government scheme database
-│
-├── audio_processor.py # Whisper + TTS wrappers
-├── intent_detector.py # Hindi keyword-based intent extraction
+├── audio_processor.py           # Whisper + TTS wrappers
+├── intent_detector.py           # Hindi keyword-based intent extraction
 │
 ├── rag/
-│ └── multilingual_retriever.py # ChromaDB-based scheme retrieval
+│   └── multilingual_retriever.py  # ChromaDB-based scheme retrieval
 │
-├── README.md # Project documentation
+└── README.md                    # Project documentation
 
 
 
@@ -125,9 +143,8 @@ kisaan-mitra/
 
 ## 🚀 Round 2 Improvements (Planned)
 
-### 🔌 1. WhatsApp & IVR Integration
+### 🔌 1. WhatsApp & App Integration
 - WhatsApp voice message support
-- IVR phone gateway (Exotel / Twilio)
 - Multi-turn conversations
 - Message persistence
 
@@ -172,10 +189,3 @@ kisaan-mitra/
 - Accessibility audit
 
 ---
-
-## 🤝 Contribution
-
-This is the work of team Neobots for Hack The Winter - The Second Wave (Angry Bird Edition)
-
----
-
