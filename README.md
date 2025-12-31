@@ -31,9 +31,7 @@ A **voice-first, multilingual AI assistant** that:
 ## 🎥 Demo
 
 📽️ **Watch the working demo here:**  
-👉 *Google Drive link will be added soon*
-
-(Voice interaction, scheme discovery, and multilingual responses are demonstrated.)
+👉 (https://drive.google.com/file/d/1_EAiIJyRpXbgkFvnrCrjWflCESjKffk8/view?usp=sharing)
 
 ---
 
