@@ -1,0 +1,50 @@
+# Speech-to-Text
+openai-whisper>=20240930
+faster-whisper>=0.10.0
+
+# Local LLM
+ollama>=0.1.0
+langchain>=0.1.0
+langchain-ollama>=0.0.1
+
+# Vector Database & RAG
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+
+# Text-to-Speech
+pyttsx3>=2.90
+edge-tts>=6.1.0
+coqui-tts>=0.6.0
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-multipart>=0.0.6
+
+# Data Processing
+pydantic>=2.0.0
+numpy>=1.24.0
+soundfile>=0.12.0
+librosa>=0.10.0
+
+# Audio Processing
+pydub>=0.25.1
+scipy>=1.11.0
+pyaudio>=0.2.13
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
+aiofiles>=23.2.0
+
+# Optional: Document OCR
+pytesseract>=0.3.10
+opencv-python>=4.8.0
+pillow>=10.0.0
+
+# Optional: Advanced NLP
+transformers>=4.34.0
+torch>=2.0.0
+
+# Database
+sqlalchemy>=2.0.0
