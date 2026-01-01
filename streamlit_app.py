@@ -326,9 +326,9 @@ def main():
         ["Text Query", " Voice Query", "All Schemes", "FAQ"]
     )
     
-    # ============================================
+   
     # TAB 1: TEXT QUERY
-    # ============================================
+    
     with tab1:
         st.header("Text-Based Query")
         st.write("Ask your agricultural question in text format")
@@ -576,3 +576,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
