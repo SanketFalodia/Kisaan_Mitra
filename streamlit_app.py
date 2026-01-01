@@ -8,9 +8,7 @@ from datetime import datetime
 import os
 from typing import Optional, Dict, List
 
-# ============================================
 # Page Configuration
-# ============================================
 
 st.set_page_config(
     page_title="Kisaan Mitra - कृषि सहायता",
@@ -22,9 +20,7 @@ st.set_page_config(
     }
 )
 
-# ============================================
 # Custom CSS Styling
-# ============================================
 
 st.markdown("""
     <style>
@@ -98,9 +94,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ============================================
+
 # Session State Initialization
-# ============================================
+
 
 if "api_url" not in st.session_state:
     st.session_state.api_url = "http://localhost:8000"
@@ -114,9 +110,9 @@ if "last_response" not in st.session_state:
 if "query_history" not in st.session_state:
     st.session_state.query_history = []
 
-# ============================================
+
 # Helper Functions
-# ============================================
+
 
 def check_api_health(api_url: str) -> bool:
     """Check if API is running"""
@@ -214,7 +210,7 @@ def display_scheme_card(scheme: Dict):
     with st.container():
         st.markdown(f"""
             <div class="scheme-card">
-                <h4>🎯 {scheme.get('scheme_name', 'Unknown Scheme')}</h4>
+                <h4> {scheme.get('scheme_name', 'Unknown Scheme')}</h4>
                 <p><b>Scheme ID:</b> {scheme.get('scheme_id', 'N/A')}</p>
                 <p><b>Intent:</b> {scheme.get('intent', 'N/A').replace('_', ' ').title()}</p>
                 <p><b>Required Fields:</b></p>
@@ -249,15 +245,13 @@ def get_language_emoji(language: str) -> str:
     }
     return language_map.get(language, "🌐")
 
-# ============================================
 # Main App
-# ============================================
 
 def main():
     # Header
     st.markdown("""
         <div class="main-header">
-            <h1>🌾 किसान मित्र - Kisaan Mitra</h1>
+            <h1> किसान मित्र - Kisaan Mitra</h1>
             <h3>AI-Powered Agricultural Assistant</h3>
             <p>Get instant government scheme recommendations for your farm</p>
         </div>
@@ -265,7 +259,7 @@ def main():
     
     # Sidebar Configuration
     with st.sidebar:
-        st.header("⚙️ Settings")
+        st.header("Settings")
         
         # API Configuration
         st.subheader("API Configuration")
@@ -278,14 +272,14 @@ def main():
         # Check API Health
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("🔍 Check API"):
+            if st.button("Check API"):
                 if check_api_health(st.session_state.api_url):
-                    st.success("✅ API is running!")
+                    st.success(" API is running!")
                 else:
-                    st.error("❌ API is not responding")
+                    st.error(" API is not responding")
         
         with col2:
-            if st.button("🔄 Refresh"):
+            if st.button(" Refresh"):
                 st.rerun()
         
         st.divider()
@@ -306,7 +300,7 @@ def main():
         st.divider()
         
         # Quick Info
-        st.subheader("ℹ️ About")
+        st.subheader("About")
         st.info(
             """
             **Kisaan Mitra** helps farmers find relevant government schemes.
@@ -323,20 +317,20 @@ def main():
         
         # Query History
         if st.session_state.query_history:
-            st.subheader("📝 Recent Queries")
+            st.subheader(" Recent Queries")
             for i, query in enumerate(st.session_state.query_history[-5:], 1):
                 st.caption(f"{i}. {query[:50]}...")
     
     # Main Content Tabs
     tab1, tab2, tab3, tab4 = st.tabs(
-        ["💬 Text Query", "🎤 Voice Query", "📚 All Schemes", "❓ FAQ"]
+        ["Text Query", " Voice Query", "All Schemes", "FAQ"]
     )
     
     # ============================================
     # TAB 1: TEXT QUERY
     # ============================================
     with tab1:
-        st.header("💬 Text-Based Query")
+        st.header("Text-Based Query")
         st.write("Ask your agricultural question in text format")
         
         col1, col2 = st.columns([4, 1])
@@ -350,24 +344,24 @@ def main():
         with col2:
             st.write("")
             st.write("")
-            submit_button = st.button("🔍 Submit Query", key="text_submit")
+            submit_button = st.button(" Submit Query", key="text_submit")
         
         if submit_button and user_query:
             with st.spinner("Processing your query..."):
                 response = send_text_query(user_query, language=selected_language)
             
             if "error" in response:
-                st.error(f"❌ Error: {response['error']}")
+                st.error(f" Error: {response['error']}")
             else:
                 st.session_state.last_response = response
                 st.session_state.last_query = user_query
                 st.session_state.query_history.append(user_query)
                 
                 # Display Results
-                st.success("✅ Query processed successfully!")
+                st.success(" Query processed successfully!")
                 
                 # Detected Information
-                st.subheader("🔍 Detected Information")
+                st.subheader(" Detected Information")
                 col1, col2, col3, col4 = st.columns(4)
                 
                 with col1:
@@ -397,13 +391,13 @@ def main():
                     )
                 
                 # Response Text
-                st.subheader("📋 Response")
+                st.subheader(" Response")
                 st.info(response.get('text_response', 'No response generated'))
                 
                 # Eligible Schemes
                 schemes = response.get('eligible_schemes', [])
                 if schemes:
-                    st.subheader(f"✅ Eligible Schemes ({len(schemes)})")
+                    st.subheader(f" Eligible Schemes ({len(schemes)})")
                     for scheme in schemes:
                         display_scheme_card(scheme)
                 else:
@@ -412,11 +406,11 @@ def main():
         elif submit_button:
             st.warning("Please enter a question first")
     
-    # ============================================
+   
     # TAB 2: VOICE QUERY
-    # ============================================
+   
     with tab2:
-        st.header("🎤 Voice-Based Query")
+        st.header(" Voice-Based Query")
         st.write("Upload an audio file or record your question")
         
         audio_mode = st.radio(
@@ -434,21 +428,21 @@ def main():
         else:
             audio_file = st.audio_input("Click to record (max 30 seconds)")
         
-        if st.button("🎙️ Process Audio", key="audio_submit"):
+        if st.button(" Process Audio", key="audio_submit"):
             if audio_file:
                 with st.spinner("Processing audio..."):
                     response = send_audio_query(audio_file, language=selected_language)
                 
                 if "error" in response:
-                    st.error(f"❌ Error: {response['error']}")
+                    st.error(f" Error: {response['error']}")
                 else:
                     st.session_state.last_response = response
                     
                     # Display Results
-                    st.success("✅ Audio processed successfully!")
+                    st.success("Audio processed successfully!")
                     
                     # Detected Information
-                    st.subheader("🔍 Detected Information")
+                    st.subheader(" Detected Information")
                     col1, col2, col3, col4 = st.columns(4)
                     
                     with col1:
@@ -461,12 +455,12 @@ def main():
                         st.metric("Confidence", f"{response.get('confidence', 0)*100:.0f}%")
                     
                     # Response Text
-                    st.subheader("📋 AI Response")
+                    st.subheader(" AI Response")
                     st.info(response.get('text_response', 'No response generated'))
                     
                     # Response Audio (if available)
                     if response.get('audio_response_path'):
-                        st.subheader("🔊 Voice Response")
+                        st.subheader(" Voice Response")
                         try:
                             with open(response['audio_response_path'], 'rb') as audio:
                                 st.audio(audio.read(), format="audio/wav")
@@ -476,7 +470,7 @@ def main():
                     # Eligible Schemes
                     schemes = response.get('eligible_schemes', [])
                     if schemes:
-                        st.subheader(f"✅ Eligible Schemes ({len(schemes)})")
+                        st.subheader(f" Eligible Schemes ({len(schemes)})")
                         for scheme in schemes:
                             display_scheme_card(scheme)
                     else:
@@ -484,19 +478,19 @@ def main():
             else:
                 st.warning("Please upload or record audio first")
     
-    # ============================================
+  
     # TAB 3: ALL SCHEMES
-    # ============================================
+
     with tab3:
-        st.header("📚 All Available Schemes")
+        st.header(" All Available Schemes")
         st.write("Browse all government schemes available in Uttarakhand")
         
-        if st.button("📥 Load All Schemes"):
+        if st.button(" Load All Schemes"):
             with st.spinner("Loading schemes..."):
                 schemes = fetch_all_schemes()
             
             if schemes:
-                st.success(f"✅ Loaded {len(schemes)} schemes")
+                st.success(f" Loaded {len(schemes)} schemes")
                 
                 # Filter options
                 col1, col2 = st.columns(2)
@@ -529,11 +523,11 @@ def main():
             else:
                 st.error("Could not load schemes")
     
-    # ============================================
+    
     # TAB 4: FAQ
-    # ============================================
+   
     with tab4:
-        st.header("❓ Frequently Asked Questions")
+        st.header(" Frequently Asked Questions")
         
         faqs = [
             {
@@ -568,7 +562,7 @@ def main():
         
         # Contact Information
         st.divider()
-        st.subheader("📞 Need Help?")
+        st.subheader(" Need Help?")
         st.info(
             """
             **For technical support:** github.com/kisaan-mitra
@@ -580,4 +574,5 @@ def main():
         )
 
 if __name__ == "__main__":
+
     main()
