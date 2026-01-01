@@ -14,9 +14,8 @@ from multilingual_retriever import MultilingualSchemeRetriever
 from intent_detector import IntentDetector
 from audio_processor import MultilingualAudioProcessor, MultilingualTranslator
 
-# ============================================
+
 # Initialize Components
-# ============================================
 
 app = FastAPI(
     title="Kisaan Mitra - Voice-First AI Assistant",
@@ -30,9 +29,9 @@ intent_detector = IntentDetector(model_name="mistral")
 audio_processor = MultilingualAudioProcessor(model_size="base")
 translator = MultilingualTranslator()
 
-# ============================================
+
 # Data Models
-# ============================================
+
 
 class FarmerQuery(BaseModel):
     """Structured query from farmer"""
@@ -66,9 +65,8 @@ class AssistantResponse(BaseModel):
     text_response: str
     audio_response_path: Optional[str] = None
 
-# ============================================
+
 # Health Check Endpoint
-# ============================================
 
 @app.get("/health")
 async def health_check():
@@ -83,9 +81,8 @@ async def health_check():
         }
     }
 
-# ============================================
+
 # Core Processing Endpoints
-# ============================================
 
 @app.post("/process-audio")
 async def process_audio(
@@ -129,11 +126,11 @@ async def process_audio(
         with open(temp_audio_path, "wb") as f:
             f.write(audio_data)
         
-        print(f"📁 Saved audio to: {temp_audio_path}")
-        print(f"📊 Audio size: {len(audio_data)} bytes")
+        print(f" Saved audio to: {temp_audio_path}")
+        print(f" Audio size: {len(audio_data)} bytes")
         
         # Step 1: Convert speech to text
-        print("🎤 Step 1: Converting speech to text...")
+        print(" Step 1: Converting speech to text")
         try:
             text, detected_language, stt_confidence = await audio_processor.speech_to_text(
                 temp_audio_path,
@@ -146,22 +143,22 @@ async def process_audio(
         if not text or text.strip() == "":
             raise HTTPException(status_code=400, detail="Could not transcribe audio - please speak clearly")
         
-        print(f"✅ Transcribed text: {text}")
-        print(f"🔤 Detected language: {detected_language}")
-        print(f"📊 STT Confidence: {stt_confidence:.2%}")
+        print(f" Transcribed text: {text}")
+        print(f" Detected language: {detected_language}")
+        print(f" STT Confidence: {stt_confidence:.2%}")
         
         # Step 2: Parse query and detect intent
-        print("🧠 Step 2: Detecting intent...")
+        print(" Step 2: Detecting intent...")
         parsed_query = intent_detector.parse_query(text)
         
         intent = parsed_query["intent"]
         disaster = parsed_query["disaster"]
         age = parsed_query["age"]
         
-        print(f"✅ Intent: {intent}, Disaster: {disaster}, Age: {age}")
+        print(f" Intent: {intent}, Disaster: {disaster}, Age: {age}")
         
         # Step 3: Retrieve eligible schemes from RAG
-        print("📚 Step 3: Retrieving eligible schemes...")
+        print(" Step 3: Retrieving eligible schemes")
         eligible_schemes = retriever.get_eligible_schemes(
             intent=intent,
             disaster=disaster,
@@ -169,10 +166,10 @@ async def process_audio(
             language=detected_language
         )
         
-        print(f"✅ Found {len(eligible_schemes)} eligible schemes")
+        print(f" Found {len(eligible_schemes)} eligible schemes")
         
         # Step 4: Generate text response
-        print("💬 Step 4: Generating response...")
+        print(" Step 4: Generating response")
         response_text = _generate_response(
             intent=intent,
             disaster=disaster,
@@ -182,7 +179,7 @@ async def process_audio(
         )
         
         # Step 5: Convert response to speech
-        print("🔊 Step 5: Converting response to speech...")
+        print(" Step 5: Converting response to speech...")
         output_audio_path = os.path.join(tempfile.gettempdir(), f"response_{uuid.uuid4()}.wav")
         
         try:
@@ -193,7 +190,7 @@ async def process_audio(
             )
             
             if not tts_success:
-                print("⚠️ TTS failed, trying offline mode...")
+                print(" TTS failed, trying offline mode...")
                 tts_success = audio_processor.text_to_speech_offline(
                     response_text,
                     output_path=output_audio_path
@@ -201,7 +198,7 @@ async def process_audio(
             
             if not tts_success:
                 output_audio_path = None
-                print("⚠️ TTS unavailable, returning text only")
+                print(" TTS unavailable, returning text only")
         except Exception as e:
             print(f"TTS Error: {e}")
             output_audio_path = None
@@ -231,13 +228,13 @@ async def process_audio(
             audio_response_path=output_audio_path
         )
         
-        print("✅ Audio processing complete!")
+        print("Audio processing complete!")
         return response
     
     except HTTPException:
         raise
     except Exception as e:
-        print(f"❌ Error processing audio: {e}")
+        print(f" Error processing audio: {e}")
         import traceback
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
@@ -343,18 +340,17 @@ async def get_scheme_details(scheme_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# ============================================
+
 # Helper Functions
-# ============================================
 
 def _safe_delete(file_path: str):
     """Safely delete a file"""
     try:
         if os.path.exists(file_path):
             os.remove(file_path)
-            print(f"🗑️ Deleted temp file: {file_path}")
+            print(f" Deleted temp file: {file_path}")
     except Exception as e:
-        print(f"⚠️ Could not delete {file_path}: {e}")
+        print(f" Could not delete {file_path}: {e}")
 
 def _generate_response(
     intent: str,
@@ -390,9 +386,9 @@ def _generate_response(
     
     return response
 
-# ============================================
+
 # Root Endpoint
-# ============================================
+
 
 @app.get("/")
 async def root():
@@ -410,9 +406,8 @@ async def root():
         }
     }
 
-# ============================================
+
 # Run Application
-# ============================================
 
 if __name__ == "__main__":
     import uvicorn
@@ -421,4 +416,5 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=8000,
         reload=False
+
     )
