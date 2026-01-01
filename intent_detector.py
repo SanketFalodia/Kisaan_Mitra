@@ -201,7 +201,7 @@ class IntentDetector:
                 intent_scores[intent] = matches
                 if matched_keywords:
                     print(
-                        f"🎯 Matched intent '{intent}' with keyword '{matched_keywords[0]}'"
+                        f" Matched intent '{intent}' with keyword '{matched_keywords[0]}'"
                     )
 
         # Find matching disasters
@@ -217,7 +217,7 @@ class IntentDetector:
                 disaster_scores[disaster] = matches
                 if matched_keywords:
                     print(
-                        f"🎯 Matched disaster '{disaster}' with keyword '{matched_keywords[0]}'"
+                        f" Matched disaster '{disaster}' with keyword '{matched_keywords[0]}'"
                     )
 
         # Get best matches
@@ -238,10 +238,10 @@ class IntentDetector:
 
         # Print debug info
         if intent_score > 0:
-            print(f"✅ Best intent: {best_intent} (score: {intent_score})")
+            print(f" Best intent: {best_intent} (score: {intent_score})")
 
         if disaster_score > 0:
-            print(f"✅ Best disaster: {best_disaster} (score: {disaster_score})")
+            print(f" Best disaster: {best_disaster} (score: {disaster_score})")
 
         # Boost confidence if both intent and disaster found
         confidence = 0.0
@@ -249,7 +249,7 @@ class IntentDetector:
             confidence = min(0.95, (intent_score + disaster_score) * 0.2)
 
         if best_intent != "general_support" and best_disaster != "unspecified":
-            print(f"⬆️ Boosted confidence for {best_intent} + {best_disaster}")
+            print(f" Boosted confidence for {best_intent} + {best_disaster}")
             confidence = 0.95
 
         return {
@@ -407,3 +407,4 @@ class SchemeFilter:
                 eligible.append(scheme)
 
         return eligible
+
