@@ -19,8 +19,8 @@ class MultilingualAudioProcessor:
         self.model = None
         self.initialized = False
 
-        print("🎤 Initializing Whisper with MEDIUM model (forced)")
-        print("⏳ Downloading ~1.5GB model (first time only)...")
+        print(" Initializing Whisper with MEDIUM model (forced)")
+        print(" Downloading ~1.5GB model (first time only)...")
 
         try:
             from faster_whisper import WhisperModel
@@ -32,18 +32,18 @@ class MultilingualAudioProcessor:
             )
 
             self.initialized = True
-            print("✅ SUCCESS: Whisper MEDIUM model loaded!")
-            print("📊 Model: MEDIUM (excellent Hindi/Urdu accuracy)")
+            print(" SUCCESS: Whisper MEDIUM model loaded!")
+            print(" Model: MEDIUM (excellent Hindi/Urdu accuracy)")
 
         except RuntimeError as e:
             if "malloc" in str(e).lower():
-                print("❌ CRITICAL: Not enough RAM for MEDIUM model!")
-                print("⚠️ Need ~3GB free RAM")
+                print(" CRITICAL: Not enough RAM for MEDIUM model!")
+                print(" Need ~3GB free RAM")
             else:
-                print(f"❌ Error loading MEDIUM: {e}")
+                print(f" Error loading MEDIUM: {e}")
 
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
 
     async def speech_to_text(
         self,
@@ -55,11 +55,11 @@ class MultilingualAudioProcessor:
         """
 
         if not self.initialized or self.model is None:
-            print("❌ MEDIUM Whisper not available")
+            print(" MEDIUM Whisper not available")
             return "", "en", 0.0
 
         try:
-            print("🎤 Transcribing with MEDIUM Whisper model")
+            print(" Transcribing with MEDIUM Whisper model")
 
             segments, info = self.model.transcribe(
                 audio_path,
@@ -78,23 +78,23 @@ class MultilingualAudioProcessor:
 
             transcribed_text = transcribed_text.strip()
 
-            print(f"✅ Transcription: {transcribed_text}")
-            print(f"📊 Language: {info.language}")
+            print(f" Transcription: {transcribed_text}")
+            print(f" Language: {info.language}")
 
             devanagari_count = self._count_devanagari(transcribed_text)
             urdu_count = self._count_urdu(transcribed_text)
 
-            print(f"📊 Script: Devanagari={devanagari_count}, Urdu={urdu_count}")
+            print(f" Script: Devanagari={devanagari_count}, Urdu={urdu_count}")
 
             if devanagari_count > urdu_count:
-                print("✅ EXCELLENT: Hindi (Devanagari) output!")
+                print(" EXCELLENT: Hindi (Devanagari) output!")
             else:
-                print("⚠️ Some Urdu detected, MEDIUM handles this well")
+                print(" Some Urdu detected, MEDIUM handles this well")
 
             return transcribed_text, "hi", 0.95
 
         except Exception as e:
-            print(f"❌ Transcription error: {e}")
+            print(f" Transcription error: {e}")
             return "", "en", 0.0
 
     def _count_devanagari(self, text: str) -> int:
@@ -153,7 +153,7 @@ class MultilingualAudioProcessor:
                         await communicate.save(output_path)
                         return True
                     except Exception as e:
-                        print(f"⚠️ TTS generate error: {e}")
+                        print(f" TTS generate error: {e}")
                         return False
 
                 try:
@@ -166,18 +166,18 @@ class MultilingualAudioProcessor:
             thread.join(timeout=30)
 
             if success and os.path.exists(output_path) and os.path.getsize(output_path) > 100:
-                print(f"✅ Edge-TTS saved to: {output_path}")
+                print(f" Edge-TTS saved to: {output_path}")
                 return True
 
-            print("⚠️ TTS file not created")
+            print(" TTS file not created")
             return False
 
         except ImportError:
-            print("⚠️ edge_tts not installed, using offline TTS")
+            print(" edge_tts not installed, using offline TTS")
             return self.text_to_speech_offline(text, language, output_path)
 
         except Exception as e:
-            print(f"⚠️ Edge-TTS error: {e}")
+            print(f" Edge-TTS error: {e}")
             return self.text_to_speech_offline(text, language, output_path)
 
     def text_to_speech_offline(
@@ -207,14 +207,14 @@ class MultilingualAudioProcessor:
             engine.runAndWait()
 
             if os.path.exists(output_path) and os.path.getsize(output_path) > 100:
-                print(f"✅ Offline TTS saved: {output_path}")
+                print(f" Offline TTS saved: {output_path}")
                 return True
 
-            print("⚠️ Offline TTS file not created")
+            print(" Offline TTS file not created")
             return False
 
         except Exception as e:
-            print(f"⚠️ Offline TTS error: {e}")
+            print(f" Offline TTS error: {e}")
             return False
 
 
@@ -243,3 +243,4 @@ class MultilingualTranslator:
             return text.format(**kwargs)
         except Exception:
             return ""
+
