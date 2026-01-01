@@ -259,7 +259,7 @@ def main():
     
     # Sidebar Configuration
     with st.sidebar:
-        st.header("Settings")
+        st.header("⚙️Settings")
         
         # API Configuration
         st.subheader("API Configuration")
@@ -272,14 +272,14 @@ def main():
         # Check API Health
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("Check API"):
+            if st.button("🔍Check API"):
                 if check_api_health(st.session_state.api_url):
                     st.success(" API is running!")
                 else:
                     st.error(" API is not responding")
         
         with col2:
-            if st.button(" Refresh"):
+            if st.button("🔄️Refresh"):
                 st.rerun()
         
         st.divider()
@@ -344,7 +344,7 @@ def main():
         with col2:
             st.write("")
             st.write("")
-            submit_button = st.button(" Submit Query", key="text_submit")
+            submit_button = st.button(" 🔍Submit Query", key="text_submit")
         
         if submit_button and user_query:
             with st.spinner("Processing your query..."):
@@ -428,7 +428,7 @@ def main():
         else:
             audio_file = st.audio_input("Click to record (max 30 seconds)")
         
-        if st.button(" Process Audio", key="audio_submit"):
+        if st.button(" 🎙️Process Audio", key="audio_submit"):
             if audio_file:
                 with st.spinner("Processing audio..."):
                     response = send_audio_query(audio_file, language=selected_language)
@@ -455,12 +455,12 @@ def main():
                         st.metric("Confidence", f"{response.get('confidence', 0)*100:.0f}%")
                     
                     # Response Text
-                    st.subheader(" AI Response")
+                    st.subheader(" 📋AI Response")
                     st.info(response.get('text_response', 'No response generated'))
                     
                     # Response Audio (if available)
                     if response.get('audio_response_path'):
-                        st.subheader(" Voice Response")
+                        st.subheader(" 🎙️Voice Response")
                         try:
                             with open(response['audio_response_path'], 'rb') as audio:
                                 st.audio(audio.read(), format="audio/wav")
@@ -576,6 +576,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
