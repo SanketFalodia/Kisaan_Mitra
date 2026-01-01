@@ -1,30 +1,30 @@
-> 🏆 Built by **Team Neobots** for  
+>  Built by **Team Neobots** for  
 > **Hack The Winter – The Second Wave (Angry Bird Edition)**
 > 
 
-# 🌾 Kisaan Mitra
+#  Kisaan Mitra
 
 **Kisaan Mitra** is an **AI-powered, voice-first assistant** designed to help Indian farmers—especially from **Uttarakhand (Garhwal & Kumaoni regions)**—discover and understand **government agricultural schemes** in their **local languages**.
 
 ---
 
-## 🚜 The Problem
+##  The Problem
 
 - 🇮🇳 **70% of Indian farmers** speak Hindi or regional languages  
-- 🌐 Most government scheme portals are **English-only**  
-- 🧾 Finding eligible schemes requires navigating **complex forms**  
-- 📱 **Limited digital literacy** among rural farmers  
+-  Most government scheme portals are **English-only**  
+-  Finding eligible schemes requires navigating **complex forms**  
+-  **Limited digital literacy** among rural farmers  
 
 ---
 
-## 💡 The Solution
+##  The Solution
 
 A **voice-first, multilingual AI assistant** that:
 
-- 🎙️ Listens to farmers in their **native language** (Hindi, Garhwali, Kumaoni)
-- 🧠 Understands **farmer needs & disasters**
-- 📚 Retrieves **eligible government schemes in real time**
-- 🔊 Responds **naturally in the same language**
+-  Listens to farmers in their **native language** (Hindi, Garhwali, Kumaoni)
+-  Understands **farmer needs & disasters**
+-  Retrieves **eligible government schemes in real time**
+-  Responds **naturally in the same language**
 
 ---
 
@@ -35,9 +35,9 @@ A **voice-first, multilingual AI assistant** that:
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🎤 Voice-First Interface
+###  Voice-First Interface
 - Local **Speech-to-Text** using **Whisper**
 - Hindi agricultural terminology understanding
 - **Text-to-Speech** via **Edge-TTS**
@@ -45,7 +45,7 @@ A **voice-first, multilingual AI assistant** that:
 
 ---
 
-### 🧠 Intelligent Intent Detection
+###  Intelligent Intent Detection
 - Detects farmer needs:
   - Crop loss  
   - Pest/disease  
@@ -61,7 +61,7 @@ A **voice-first, multilingual AI assistant** that:
 
 ---
 
-### 📚 RAG-Powered Scheme Matching
+###  RAG-Powered Scheme Matching
 - **ChromaDB** for vector-based semantic search
 - Intent + disaster → scheme eligibility mapping
 - Age-based filtering
@@ -73,25 +73,25 @@ A **voice-first, multilingual AI assistant** that:
 
 ---
 
-### 🔒 Privacy-First Design
-- 🔐 **100% local processing**
-- 🚫 No cloud API calls for speech
-- 🗃️ No data retention
-- 🔓 Open-source models
-- 📴 Zero external dependencies during inference
+###  Privacy-First Design
+-  **100% local processing**
+-  No cloud API calls for speech
+-  No data retention
+-  Open-source models
+-  Zero external dependencies during inference
 
 ---
 
-### 📱 Web & Future Integrations
-- ✅ Streamlit web interface (current)
-- ⚡ FastAPI backend (scalable)
-- 📞 WhatsApp & IVR-ready (Round 2)
+###  Web & Future Integrations
+- Streamlit web interface (current)
+- FastAPI backend (scalable)
+- WhatsApp & IVR-ready (Round 2)
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
-### 🔹 Current System (Round 1)
+###  Current System (Round 1)
 
 ```text
 Farmer (Voice Input)
@@ -118,7 +118,7 @@ Farmer (Voice Response)
 ---
 
 ```markdown
-## 📁 Project Structure
+## Project Structure
 
 ```text
 kisaan-mitra/
@@ -139,16 +139,16 @@ kisaan-mitra/
 
 ---
 
-## 🚀 Round 2 Improvements (Planned)
+##  Round 2 Improvements (Planned)
 
-### 🔌 1. WhatsApp & App Integration
+###  1. WhatsApp & App Integration
 - WhatsApp voice message support
 - Multi-turn conversations
 - Message persistence
 
 ---
 
-### 🌍 2. Language Expansion
+###  2. Language Expansion
 - Fine-tuned Whisper models for Garhwali & Kumaoni
 - Regional dialect handling
 - Hinglish transliteration
@@ -156,7 +156,7 @@ kisaan-mitra/
 
 ---
 
-### 🔐 3. Security & Privacy
+###  3. Security & Privacy
 - On-device encryption
 - User consent framework
 - Data retention policies
@@ -164,7 +164,7 @@ kisaan-mitra/
 
 ---
 
-### 🗄️ 4. Real Government Portal Integration
+###  4. Real Government Portal Integration
 - CAPTCHA-safe form filling
 - Aadhaar-based auto-fill
 - OCR-based document upload
@@ -172,7 +172,7 @@ kisaan-mitra/
 
 ---
 
-### 📊 5. Advanced Features
+###  5. Advanced Features
 - User history & preferences
 - Personalized scheme recommendations
 - Offline edge deployment
@@ -180,7 +180,7 @@ kisaan-mitra/
 
 ---
 
-### 🎓 6. Accessibility
+###  6. Accessibility
 - Low-bandwidth support
 - Hearing-impaired support (captions)
 - Visually-impaired support (audio descriptions)
