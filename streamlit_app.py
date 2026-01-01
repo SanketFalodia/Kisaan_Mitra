@@ -479,10 +479,10 @@ def main():
                 st.warning("Please upload or record audio first")
     
   
-    # TAB 3: ALL SCHEMES
+    # TAB 3:📊 ALL SCHEMES
 
     with tab3:
-        st.header(" All Available Schemes")
+        st.header(" 📊All Available Schemes")
         st.write("Browse all government schemes available in Uttarakhand")
         
         if st.button(" Load All Schemes"):
@@ -576,5 +576,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
