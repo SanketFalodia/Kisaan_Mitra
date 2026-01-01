@@ -327,10 +327,10 @@ def main():
     )
     
    
-    # TAB 1: TEXT QUERY
+    # TAB 1: 💬 TEXT QUERY
     
     with tab1:
-        st.header("Text-Based Query")
+        st.header("💬Text-Based Query")
         st.write("Ask your agricultural question in text format")
         
         col1, col2 = st.columns([4, 1])
@@ -407,10 +407,10 @@ def main():
             st.warning("Please enter a question first")
     
    
-    # TAB 2: VOICE QUERY
+    # TAB 2: 🎤VOICE QUERY
    
     with tab2:
-        st.header(" Voice-Based Query")
+        st.header(" 🎤Voice-Based Query")
         st.write("Upload an audio file or record your question")
         
         audio_mode = st.radio(
@@ -524,10 +524,10 @@ def main():
                 st.error("Could not load schemes")
     
     
-    # TAB 4: FAQ
+    # TAB 4: ❓FAQ
    
     with tab4:
-        st.header(" Frequently Asked Questions")
+        st.header("❓ Frequently Asked Questions")
         
         faqs = [
             {
@@ -576,4 +576,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
