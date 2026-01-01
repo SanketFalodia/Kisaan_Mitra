@@ -51,7 +51,7 @@ class MultilingualSchemeRetriever:
         data_path = os.path.join(self.base_dir, "data", "uttarakhand_schemes.json")
         
         if len(self.collection.get()["ids"]) == 0:
-            print("⚡ Indexing Uttarakhand schemes into ChromaDB...")
+            print(" Indexing Uttarakhand schemes into ChromaDB...")
             
             with open(data_path, "r", encoding="utf-8") as f:
                 schemes = json.load(f)
@@ -88,7 +88,7 @@ class MultilingualSchemeRetriever:
                     ids=[scheme["scheme_id"]]
                 )
             
-            print("✅ All schemes indexed successfully!")
+            print(" All schemes indexed successfully!")
     
     def get_eligible_schemes(
         self,
@@ -141,9 +141,9 @@ class MultilingualSchemeRetriever:
         matching_intents = intent_map.get(intent, [intent])
         matching_disasters = disaster_map.get(disaster, [disaster])
         
-        print(f"🎯 Looking for intents: {matching_intents}")
+        print(f" Looking for intents: {matching_intents}")
         if matching_disasters:
-            print(f"🎯 Looking for disasters: {matching_disasters}")
+            print(f" Looking for disasters: {matching_disasters}")
         
         # Get ALL schemes first
         all_results = self.collection.get(include=["metadatas"])
@@ -167,7 +167,7 @@ class MultilingualSchemeRetriever:
             )
             
             if not intent_match:
-                print(f"⏭️ {meta['scheme_name']}: intent '{scheme_intent}' doesn't match {matching_intents}")
+                print(f" {meta['scheme_name']}: intent '{scheme_intent}' doesn't match {matching_intents}")
                 continue
             
             # Check disaster match (if specified)
@@ -182,17 +182,17 @@ class MultilingualSchemeRetriever:
                 disaster_match = True
             
             if not disaster_match:
-                print(f"⏭️ {meta['scheme_name']}: disaster doesn't match. Allowed: {allowed_disasters}, Looking for: {matching_disasters}")
+                print(f" {meta['scheme_name']}: disaster doesn't match. Allowed: {allowed_disasters}, Looking for: {matching_disasters}")
                 continue
             
             # Check age match
             if age > 0 and not (min_age <= age <= max_age):
-                print(f"⏭️ {meta['scheme_name']}: age {age} outside range {min_age}-{max_age}")
+                print(f" {meta['scheme_name']}: age {age} outside range {min_age}-{max_age}")
                 continue
             
             # Check state match
             if state_meta != "ALL" and state_meta.lower() != state.lower():
-                print(f"⏭️ {meta['scheme_name']}: state mismatch")
+                print(f" {meta['scheme_name']}: state mismatch")
                 continue
             
             # All checks passed!
@@ -206,9 +206,9 @@ class MultilingualSchemeRetriever:
                 "age_eligibility": f"{min_age} - {max_age} years"
             }
             eligible_schemes.append(scheme_data)
-            print(f"✅ Eligible: {meta.get('scheme_name')}")
+            print(f" Eligible: {meta.get('scheme_name')}")
         
-        print(f"📚 Total eligible schemes: {len(eligible_schemes)}")
+        print(f" Total eligible schemes: {len(eligible_schemes)}")
         return eligible_schemes
     
     def get_scheme_details(self, scheme_id: str) -> Optional[Dict]:
@@ -268,4 +268,5 @@ class MultilingualSchemeRetriever:
 
 
 # Initialize global retriever
+
 retriever = MultilingualSchemeRetriever()
