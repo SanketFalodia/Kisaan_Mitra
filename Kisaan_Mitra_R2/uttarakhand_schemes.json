@@ -1,0 +1,347 @@
+[
+  {
+  "scheme_id": "UK_001",
+  "scheme_name": "Organic and Natural Farming",
+  "state": "All",
+  "intent": "agri_development",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": [
+    "flood",
+    "landslide",
+    "hailstorm",
+    "pest_attack",
+    "soil_degradation"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "district",
+    "village",
+    "land_size",
+    "crop_type",
+    "farmer_type",
+    "bank_account"
+  ],
+  "official_url": "https://agriculture.uk.gov.in"
+  },
+  {"scheme_id": "UK_002",
+  "scheme_name": "Digital Agriculture Mission",
+  "state": "All",
+  "intent": "digital_agriculture",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": [
+    "flood",
+    "landslide",
+    "hailstorm",    
+    "drought"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "mobile_number",
+    "district",
+    "village",
+    "land_size",
+    "crop_type",
+    "bank_account"
+  ],
+  "official_url": "https://agriculture.uk.gov.in"
+},
+{
+  "scheme_id": "UK_003",
+  "scheme_name": "Food and Nutrition Security – Krishonnati Yojana",
+  "state": "ALL",
+  "intent": "food_nutrition_security",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": [
+    "flood",
+    "drought",
+    "hailstorm",
+    "pest_attack"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "land_size",
+    "crop_type",
+    "farmer_type",
+    "bank_account"
+  ],
+  "official_url": "https://agricoop.nic.in"
+},
+{
+  "scheme_id": "UK_004",
+  "scheme_name": "Sub-Mission on Agricultural Mechanization (SMAM)",
+  "state": "ALL",
+  "intent": "farm_mechanization",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": [
+    "flood",
+    "drought",
+    "hailstorm",
+    "landslide"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "farmer_type",
+    "land_size",
+    "machinery_required",
+    "bank_account"
+  ],
+  "official_url": "https://agrimachinery.nic.in"
+},
+{
+  "scheme_id": "UK_005",
+  "scheme_name": "Agriculture Infrastructure Fund (AIF)",
+  "state": "ALL",
+  "intent": "agri_infrastructure",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": [
+    "flood",
+    "drought",
+    "hailstorm",
+    "landslide"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "applicant_type",
+    "project_type",
+    "loan_amount",
+    "bank_account"
+  ],
+  "official_url": "https://agriinfra.dac.gov.in"
+},
+{
+  "scheme_id": "UK_006",
+  "scheme_name": "Pradhan Mantri Krishi Sinchai Yojana (PMKSY)",
+  "state": "ALL",
+  "intent": "irrigation_support",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": [
+    "drought",
+    "flood",
+    "hailstorm",
+    "water_scarcity"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "land_size",
+    "crop_type",
+    "irrigation_type",
+    "water_source",
+    "bank_account"
+  ],
+  "official_url": "https://pmksy.gov.in"
+},
+  {
+    "scheme_id": "UK_007",
+    "scheme_name": "Rashtriya Krishi Vikas Yojana-RAFTAR ",
+    "state": "ALL",
+    "intent": "agri_development",
+    "min_age": 18,
+    "max_age": 99,
+    "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack", "landslide"],
+    "required_fields": [ "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "farmer_type",
+    "land_size",
+    "crop_type",
+    "bank_account"
+    ],
+    "official_url": "https://rkvy.da.gov.in/"
+  },
+
+  {
+  "scheme_id": "UK_008",
+  "scheme_name": "Soil Health Management / Soil Testing (Soil Health Card Scheme)",
+  "state": "Uttarakhand",
+  "intent": "soil_testing",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack","soil_degradation"],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "land_size",
+    "crop_type"
+  ],
+  "official_url": "https://soilhealth.dac.gov.in"
+},
+{
+  "scheme_id": "UK_009",
+  "scheme_name": "Kisan Credit Card (KCC)",
+  "state": "ALL",
+  "intent": "agri_credit",
+  "min_age": 18,
+  "max_age": 75,
+  "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack"],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "farmer_type",
+    "land_size",
+    "bank_account",
+    "mobile_number"
+  ],
+  "official_url": "https://www.myscheme.gov.in/schemes/kcc"
+},
+
+{
+  "scheme_id": "UK_010",
+  "scheme_name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "state": "ALL",
+  "intent": "income_support",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack"],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "farmer_type",
+    "land_size",
+    "bank_account",
+    "mobile_number"
+  ],
+  "official_url": "https://pmkisan.gov.in"
+},
+
+{
+  "scheme_id": "UK_011",
+  "scheme_name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "state": "ALL",
+  "intent": "income_support",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack"],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "farmer_type",
+    "land_size",
+    "bank_account",
+    "mobile_number"
+  ],
+  "official_url": "https://pmkisan.gov.in"
+},
+
+{
+  "scheme_id": "UK_012",
+  "scheme_name": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
+  "state": "ALL",
+  "intent": "pension_support",
+  "min_age": 18,
+  "max_age": 40,
+  "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack"],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "land_size",
+    "bank_account",
+    "mobile_number"
+  ],
+  "official_url": "https://maandhan.in"
+},
+
+{
+  "scheme_id": "UK_013",
+  "scheme_name": "Support to State Extension Programmes for Extension Reforms (ATMA)",
+  "state": "ALL",
+  "intent": "agri_extension",
+  "min_age": 18,
+  "max_age": 99,
+  "allowed_disasters": ["flood", "drought", "hailstorm", "pest_attack"],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "farmer_type",
+    "crop_type",
+    "mobile_number"
+  ],
+  "official_url": "https://atma.gov.in"
+},
+{
+  "scheme_id": "UK_014",
+  "scheme_name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+  "state": "ALL",
+  "intent": "crop_insurance",
+  "min_age": 18,
+  "max_age": 70,
+  "allowed_disasters": [
+    "flood",
+    "drought",
+    "hailstorm",
+    "cyclone",
+    "pest_attack",
+    "disease"
+  ],
+  "required_fields": [
+    "name",
+    "age",
+    "aadhaar",
+    "state",
+    "district",
+    "village",
+    "crop_type",
+    "season",
+    "land_size",
+    "sowing_date",
+    "bank_account"
+  ],
+  "official_url": "https://pmfby.gov.in"
+}
+
+]
