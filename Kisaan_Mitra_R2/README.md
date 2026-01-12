@@ -2,7 +2,11 @@
 
 Kisaan Mitra Round 2 is an enhanced, production‑ready evolution of the original Kisaan Mitra system. It focuses on **scalability, reliability, multilingual intelligence, and real‑world deployment readiness**, while continuing to prioritize **privacy‑first, voice‑first access** for Indian farmers.
 
--
+## Demo
+
+ **Watch the working demo here:**  
+ (https://drive.google.com/file/d/1b9KcUoTV2QGk6u-SrlQ7KnevIFCybRK_/view?usp=sharing)
+
 
 ##  Vision (Round 2)
 
