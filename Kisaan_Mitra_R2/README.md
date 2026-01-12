@@ -4,14 +4,14 @@ Kisaan Mitra Round 2 is an enhanced, production‑ready evolution of the origina
 
 -
 
-## 🎯 Vision (Round 2)
+##  Vision (Round 2)
 
 Enable farmers—especially from Uttarakhand’s **Garhwali and Kumaoni regions**—to **access government agricultural schemes effortlessly using voice**, across **web, IVR, and messaging platforms**, even in low‑connectivity environments.
 
 Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, extensible AI platform**.
 
 
-### 1️⃣ FastAPI‑Based Scalable Backend
+### 1️ FastAPI‑Based Scalable Backend
 
 * Production‑grade **FastAPI server**
 * Async request handling for voice queries
@@ -20,7 +20,7 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-### 2️⃣ Improved Voice Pipeline
+### 2️ Improved Voice Pipeline
 
 * **Local Whisper (CPU‑friendly)** for speech‑to‑text
 * Noise‑robust transcription
@@ -29,7 +29,7 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-### 3️⃣ Stronger Intent & Disaster Detection
+### 3️ Stronger Intent & Disaster Detection
 
 * Deterministic **keyword + rule‑based intent engine**
 * Disaster identification:
@@ -43,7 +43,7 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-### 4️⃣ RAG 2.0 – Multilingual Scheme Retrieval
+### 4️ RAG 2.0 – Multilingual Scheme Retrieval
 
 * **ChromaDB** vector store
 * Semantic embeddings for scheme descriptions
@@ -62,7 +62,7 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-### 5️⃣ Local LLM via Ollama
+### 5️ Local LLM via Ollama
 
 * **Ollama + Mistral** for response generation
 * Zero cloud dependency
@@ -71,7 +71,7 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-### 6️⃣ Multilingual Voice Response (TTS)
+### 6️ Multilingual Voice Response (TTS)
 
 * **Edge‑TTS** for natural speech output
 * Language‑matched voice responses
@@ -79,7 +79,7 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-### 7️⃣ Privacy‑First Architecture
+### 7️ Privacy‑First Architecture
 
 * 100% **local inference**
 * No audio or text stored permanently
@@ -88,29 +88,14 @@ Round 2 transforms Kisaan Mitra from a demo‑grade assistant into a **modular, 
 
 ---
 
-## 🧠 Architecture (Round 2)
+##  Architecture (Round 2)
 
-```
-Farmer (Voice Input)
-        ↓
-Whisper STT (Local)
-        ↓
-Intent & Disaster Detector
-        ↓
-RAG Engine (ChromaDB)
-        ↓
-Eligibility Filtering
-        ↓
-LLM (Ollama – Mistral)
-        ↓
-Text‑to‑Speech (Edge‑TTS)
-        ↓
-Farmer (Voice Output)
-```
+<img width="1078" height="462" alt="image" src="https://github.com/user-attachments/assets/cb47238a-d2c1-48b1-8094-f953abf9af8b" />
+
 
 ---
 
-## 🗂️ Project Structure (Round 2)
+## Project Structure (Round 2)
 
 ```
 Kisaan_Mitra_R2/
@@ -132,35 +117,35 @@ Kisaan_Mitra_R2/
 
 ---
 
-## 🧪 How to Run (Developer Setup)
+##  How to Run (Developer Setup)
 
-### 1️⃣ Create Environment
+### 1️ Create Environment
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-### 2️⃣ Install Dependencies
+### 2️ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Start Ollama & Pull Model
+### 3️ Start Ollama & Pull Model
 
 ```bash
 ollama serve
 ollama pull mistral
 ```
 
-### 4️⃣ Run Backend Server
+### 4️ Run Backend Server
 
 ```bash
 python main.py
 ```
 
-### 5️⃣ Test Voice API
+### 5️ Test Voice API
 
 ```bash
 curl -X POST http://localhost:8000/voice-query -F "audio=@test.wav"
@@ -207,7 +192,7 @@ curl -X POST http://localhost:8000/voice-query -F "audio=@test.wav"
 
 ---
 
-## 🏁 Outcome
+##  Outcome
 
 Kisaan Mitra Round 2 demonstrates that **powerful AI systems for social good** can be:
 
